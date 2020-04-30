@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 $(document).ready(function() {
   /* global moment */
 
@@ -67,3 +68,12 @@ $.get("/api/all", function(data) {
 
 
 });
+=======
+$(document).ready(function () {
+  // This file just does a GET request to figure out which user is logged in
+  // and updates the HTML on the page
+  $.get('/api/user_data').then(function (data) {
+    $('.member-name').text(data.email)
+  })
+})
+>>>>>>> 7c750c061a563e7706655dd98d37c281ca166808
