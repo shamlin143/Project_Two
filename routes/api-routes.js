@@ -1,6 +1,7 @@
 // Requiring our models and passport as we've configured it
 var db = require("../models");
 var passport = require("../config/passport");
+var text = require('../models/text.js');
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -26,7 +27,7 @@ module.exports = function(app) {
         res.redirect(307, "/api/login");
       })
       .catch(function(err) {
-        res.status(401).json(err);
+        res.status(401).json(JSON.stringify(err));
       });
   });
 
@@ -50,4 +51,47 @@ module.exports = function(app) {
       });
     }
   });
+
+
+  app.get("/api/all", function(req, res) {
+
+    // Finding all Chirps, and then returning them to the user as JSON.
+    // Sequelize queries are asynchronous, which helps with perceived speed.
+    // If we want something to be guaranteed to happen after the query, we'll use
+    // the .then function
+    db.text.findAll({}).then(function(results) {
+      // results are available to us inside the .then
+      res.json(results);
+    });
+
+  });
+
+  app.post("/api/new", function(req, res) {
+
+    console.log("Text Data:");
+    console.log(req.body);
+
+    db.text.create({
+      text: req.body.text,
+      user_id: req.body.user_id,
+      post_rating: req.body.post_rating
+    }).then(function(results) {
+      // `results` here would be the newly created chirp
+      res.end();
+    });
+
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
 };
