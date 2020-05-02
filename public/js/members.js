@@ -11,7 +11,6 @@ $(document).ready(function () {
     event.preventDefault()
     console.log('id =' + $(this).data('id'))
     // console.log('testing')
-
   })
   // When user clicks add-btn
   $('#post-submit').on('click', function (event) {
