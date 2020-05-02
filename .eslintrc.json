@@ -6,7 +6,7 @@
         "jquery": true
     },
     "extends": [
-        "standard"
+        "plugin:prettier/recommended"
     ],
     "globals": {
         "Atomics": "readonly",
@@ -17,5 +17,7 @@
         "ecmaVersion": 2018
     },
     "rules": {
+        "prefer-const": "error",
+        "no-var": "error"
     }
 }
