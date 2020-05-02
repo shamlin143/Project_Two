@@ -60,6 +60,14 @@ module.exports = function (app) {
     })
   })
 
+  app.get('/api/likes', function (req, res) {
+  // `ORDER BY rating_id desc`
+    db.text.findAll({}).then(function (results) {
+    // results are available to us inside the .then
+      res.json(results)
+    })
+  })
+
   app.post('/api/new', function (req, res) {
     console.log('Text Data:')
     console.log(req.body)

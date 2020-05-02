@@ -72,3 +72,10 @@ label {
 padding-right: 1000px;
 
 }
+/* a.btnClick:hover {
+  filter: invert(100%);
+  -webkit-filter: invert(100%);
+} */
+p {
+  color: white;  
+}

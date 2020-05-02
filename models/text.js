@@ -7,6 +7,8 @@ module.exports = function (sequelize, DataTypes) {
     text: DataTypes.STRING,
     post_rating: DataTypes.DECIMAL(5, 4)
   })
-
+  Text.associate = function (models) {
+    Text.belongsToMany(models.User, { through: 'userLikes'})
+  }
   return Text
 }
