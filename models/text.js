@@ -1,6 +1,3 @@
-// Dependencies
-// =============================================================
-
 module.exports = function(sequelize, DataTypes) {
   const Text = sequelize.define("text", {
     user_id: DataTypes.STRING,
