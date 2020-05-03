@@ -6,15 +6,18 @@
         "jquery": true
     },
     "extends": [
-        "standard"
+        "plugin:prettier/recommended"
     ],
     "globals": {
         "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly"
+        "SharedArrayBuffer": "readonly",
+        "moment": true
     },
     "parserOptions": {
         "ecmaVersion": 2018
     },
     "rules": {
+        "prefer-const": "error",
+        "no-var": "error"
     }
 }

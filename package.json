@@ -1,10 +1,10 @@
 {
-  "name": "1-Passport-Example",
+  "name": "Project2",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "npm run lint",
+    "test": "jest",
     "start": "node server.js",
     "lint": "eslint --quiet .",
     "fix": "eslint --fix .",
@@ -20,21 +20,21 @@
     "mysql2": "^1.6.5",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-    "sequelize": "^5.8.6"
+    "sequelize": "^5.8.6",
+    "sqlite3": "^4.2.0"
   },
   "devDependencies": {
-    "chai": "^4.1.2",
-    "chai-http": "^4.0.0",
     "cross-env": "^5.2.0",
     "eslint": "^6.8.0",
-    "eslint-config-prettier": "^2.9.0",
+    "eslint-config-prettier": "^2.10.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^2.6.2",
+    "eslint-plugin-prettier": "^2.7.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
-    "mocha": "^5.2.0",
-    "prettier": "^1.13.7"
+    "jest": "^25.5.4",
+    "prettier": "^1.13.7",
+    "supertest": "^4.0.2"
   }
 }
