@@ -1,6 +1,7 @@
 // Requiring our models and passport as we've configured it
 const db = require("../models");
 const passport = require("../config/passport");
+const Sequelize = require("sequelize");
 // var text = require('../models/text.js')
 
 module.exports = function(app) {
@@ -57,6 +58,17 @@ module.exports = function(app) {
       // results are available to us inside the .then
       res.json(results);
     });
+  });
+
+  app.post("/api/post/:id/like", async function(req, res) {
+    const { id } = req.params;
+    console.log(req.params + "test id: " + id);
+    await db.text.update(
+      { post_rating: Sequelize.literal("post_rating + 1") },
+      { where: { id: id } }
+    );
+
+    res.json({ success: true });
   });
 
   app.get("/api/likes", function(req, res) {

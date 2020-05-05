@@ -31,8 +31,6 @@ module.exports = function(sequelize, DataTypes) {
       null
     );
   });
-  User.associate = function(models) {
-    User.belongsToMany(models.text, { through: "userLikes" });
-  };
+
   return User;
 };

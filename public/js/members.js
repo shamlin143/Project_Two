@@ -9,8 +9,11 @@ $(document).ready(function() {
   $(document).on("click", ".likeBtn", function(event) {
     event.preventDefault();
     console.log("id =" + $(this).data("id"));
+    const likedPostId = $(this).data("id");
+    $.post(`/api/post/${likedPostId}/like`, likedPostId);
     // console.log('testing')
   });
+
   // When user clicks add-btn
   $("#post-submit").on("click", function(event) {
     event.preventDefault();
@@ -59,13 +62,25 @@ $(document).ready(function() {
       for (let i = 0; i < data.length; i++) {
         const row = $("<div>");
         row.addClass("text");
+        // eslint-disable-next-line prefer-const
+        let [postDate, postTime] = data[i].createdAt.split("T");
+        // postTime = postTime.split(".")[0];
+        // eslint-disable-next-line prettier/prettier
+            const cleanTime= `${postDate} ${postTime}`
 
+        console.log(cleanTime);
         row.append("<p>" + data[i].user_id + " posted.. </p>");
         row.append("<p>" + data[i].text + "</p>");
-        row.append(
+        /* row.append(
           "<p>At " + moment(data[i].created_at).format("h:mma on dddd") + "</p>"
-        );
+        ); */
+
         // like button added to posts
+        row.append(
+          "<p>At " +
+            moment(cleanTime, "YYYY-MM-DD hh:mm:ss").format("h:mma on dddd") +
+            "</p>"
+        );
         row.append(
           `<button class="likeBtn" data-id="${data[i].id}"><img src="../pictures/like.jpg" alt="Like" height="40px" width="40px" class="imgCount"/></button>`
         );
@@ -78,7 +93,7 @@ $(document).ready(function() {
   });
 
   // load posts with highest rating first
-  $.get("/api/likes", function(data) {
+  /* $.get("/api/likes", function(data) {
     if (data.length !== 0) {
       for (let i = 0; i < data.length; i++) {
         const row = $("<div>");
@@ -99,7 +114,7 @@ $(document).ready(function() {
         $("#post-area").prepend(row);
       }
     }
-  });
+  }); */
 });
 
 $(document).ready(function() {
