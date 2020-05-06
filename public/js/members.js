@@ -39,6 +39,7 @@ $(document).ready(function() {
       text: $("#post-box")
         .val()
         .trim(),
+      post_rating: 0,
       created_at: moment().format("YYYY-MM-DD HH:mm:ss")
     };
 
@@ -48,13 +49,30 @@ $(document).ready(function() {
     $.post("/api/new", newpost)
       // On success, run the following code
       .then(function() {
-       if (choice) {
-          getLiked();
-        } else {
+          if (choice) {
           sortByDate();
+        } else {          
+          getLiked();
         }
        });
-
+      //  $.post("/api/new", newpost)
+      //  // On success, run the following code
+      //  .then(function() {
+      //    const row = $("<div>");
+      //    row.addClass("post");
+ 
+      //    row.append("<p>" + newpost.user_id + " posted: </p>");
+      //    row.append("<p>" + newpost.text + "</p>");
+      //    row.append(
+      //      "<p>At " + moment(newpost.created_at).format("h:mma on dddd") + "</p>"
+      //    );
+      //    // add like button to new post
+      //    // row.append('<button class="likeBtn"><img src="../pictures/like.jpg" alt="Like" height="40px" width="40px"></img></button>')
+      //    row.append("<hr>");
+      //    row.append("<br>");
+ 
+      //    $("#post-area").prepend(row);
+      //  });
     // Empty each input box by replacing the value with an empty string
     $("#user").val("");
     $("#post-box").val("");
@@ -72,16 +90,12 @@ function renderList(data) {
     const row = $("<div>");
     row.addClass("text");
     // eslint-disable-next-line prefer-const
+    console.log('data[i] = ' + JSON.stringify(data[i]))
     let [postDate, postTime] = data[i].createdAt.split("T");
     // eslint-disable-next-line prettier/prettier
     const cleanTime= `${postDate} ${postTime}`
-
-    console.log(cleanTime);
     row.append("<p>" + data[i].user_id + " posted.. </p>");
     row.append("<p>" + data[i].text + "</p>");
-    /* row.append(
-      "<p>At " + moment(data[i].created_at).format("h:mma on dddd") + "</p>"
-    ); */
 
     // like button added to posts
     row.append(
@@ -114,7 +128,7 @@ function sortByDate() {
 function getLiked() {
   $.get("/api/likes", function(data) {
     if (data.length !== 0) {
-        renderList(data);
+      renderList(data);
     }
   });
 }

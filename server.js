@@ -5,6 +5,7 @@ const session = require("express-session");
 const passport = require("./config/passport");
 require("dotenv").config();
 const api_Key = process.env.MYSQL_API_KEY;
+console.log('process.env = ' + process.env)
 // Setting up port and requiring models for syncing
 const PORT = process.env.PORT || 8080;
 const db = require("./models");
