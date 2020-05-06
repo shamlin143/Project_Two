@@ -71,9 +71,10 @@ module.exports = function(app) {
     res.json({ success: true });
   });
 
-  app.get("/api/likes", function(req, res) {
+  app.get("/api/likes", async function(req, res) {
     // `ORDER BY rating_id desc`
-    db.text.findAll({}).then(function(results) {
+    await db.text.findAll({order: Sequelize.literal("post_rating DESC")}).then(function(results) {
+      // order: sequelize.literal('column_name order')
       // results are available to us inside the .then
       res.json(results);
     });
@@ -90,7 +91,7 @@ module.exports = function(app) {
         post_rating: req.body.post_rating
       })
       .then(function(results) {
-        // `results` here would be the newly created chirp
+        // `results` here would be the newly created post
         res.end();
       });
   });
