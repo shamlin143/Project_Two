@@ -6,29 +6,26 @@ text-emphasis-color: white;
 .Posts {
   padding: 10px;
   margin: 10px;
-  background-color: #e8f9ff;
+  background-color: #E8F9FF;
 }
-
 .cool-font {
   font-family: Shrikhand, cursive;
   font-size: 24px;
-  color: #e0ecf3;
+  color: #E0ECF3;
 }
-
 body {
   background-image: url(../pictures/coronavirus1.jpeg);
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: cover;    
+  background-size: cover;
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
 .cool-font {
   font-family: Shrikhand, cursive;
   font-size: 24px;
-  color: #d6e4ec;
+  color: #D6E4EC;
 }
-
 .jumbotron {
   position: relative;
   font-family: Shrikhand, cursive;
@@ -42,13 +39,11 @@ body {
     padding-bottom: 10px;
 }
 .carousel-fade  {
-height: 200px;
-width: 200px;
+height: 450px;
+width:450px;
 object-position: top;
 float: left;
-
 }
-
 input,
 textarea {
   margin: 20px;
@@ -58,18 +53,15 @@ h2 {
   font-family: shirkhand, cursive;
   font-size: 40px;
 }
-
 .nav {
   color: rgb(207, 167, 167);
   font-family: shirkhand, cursive;
  }
-
 h3 {
   color: white;
   font-family: shirkhand, cursive;
   font-size: 25px;
 }
-
 label {
   color: white;
   font-family: shirkhand, cursive;
@@ -89,6 +81,18 @@ padding-right: 1000px;
   float: left;
   padding-top: 14px;
 }
+#post-submit {
+  color: grey;
+  font-family: shirkhand, cursive;
+  font-size: 10px;
+}
+#most-liked {
+  color: grey;
+  font-family: shirkhand, cursive;
+  font-size: 10px;
+}
 p {
   color: white;
+  font-family: shirkhand, cursive;
+  font-size: 25px;
 }

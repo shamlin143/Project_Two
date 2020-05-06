@@ -47,8 +47,10 @@ $(document).ready(function() {
 
     // Send an AJAX POST-request with jQuery
     $.post("/api/new", newpost)
-      // On success, run the following code
+     
       .then(function() {
+         // On success, run the following code
+        console.log(choice);
           if (choice) {
           sortByDate();
         } else {          
@@ -100,7 +102,8 @@ function renderList(data) {
     // like button added to posts
     row.append(
       "<p>At " +
-        moment(cleanTime, "YYYY-MM-DD hh:mm:ss").format("h:mma on dddd") +
+      //   moment(cleanTime, "YYYY-MM-DD hh:mm:ss").format("h:mma on dddd") +
+        moment.utc(cleanTime).local().format("h:mma on dddd") +
         "</p>"
     );
     row.append(

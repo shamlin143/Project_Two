@@ -80,7 +80,7 @@ module.exports = function(app) {
     });
   });
 
-  app.post("/api/new", async function(req, res) {
+  app.post("/api/new", function(req, res) {
     console.log("Text Data:");
     console.log(req.body);
 
@@ -89,12 +89,11 @@ module.exports = function(app) {
         text: req.body.text,
         user_id: req.body.user_id,
         post_rating: req.body.post_rating
-      })
-      console.log('req.body.post_rating', req.body.post_rating)
-      await (function(results) {
+      })      
+      .then(function(results) {
         // console.log('reults = ' + results)
         // `results` here would be the newly created post
-        res.end();
+        return res.end();
       });
   });
 };
