@@ -1,16 +1,16 @@
 {
-  "development": {
-    "username": "root",
-    "password": "!123Sally123",
-    "database": "quarintainment_db",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-  },
-  "test": {
-    "dialect": "sqlite",
-    "storage": ":memory"
-  },
-  "production": {
-    "use_env_variable": "JAWSDB_URL"
+   "development": {
+      "username": "",
+      "password": "",
+      "database": "",
+      "host": "",
+      "dialect": "mysql"
+    },
+    "test": {
+      "dialect": "sqlite",
+      "storage": ":memory"
+    },
+    "production": {
+      "use_env_variable": "JAWSDB_URL"
+    }
   }
-}

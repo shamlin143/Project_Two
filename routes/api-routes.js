@@ -73,7 +73,7 @@ module.exports = function(app) {
 
   app.get("/api/likes", async function(req, res) {
     // `ORDER BY rating_id desc`
-    await db.text.findAll({order: Sequelize.literal("post_rating DESC")}).then(function(results) {
+    await db.text.findAll({order: Sequelize.literal("post_rating ASC")}).then(function(results) {
       // order: sequelize.literal('column_name order')
       // results are available to us inside the .then
       res.json(results);
@@ -89,10 +89,11 @@ module.exports = function(app) {
         text: req.body.text,
         user_id: req.body.user_id,
         post_rating: req.body.post_rating
-      })
+      })      
       .then(function(results) {
+        // console.log('reults = ' + results)
         // `results` here would be the newly created post
-        res.end();
+        return res.end();
       });
   });
 };

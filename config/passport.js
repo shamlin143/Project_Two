@@ -1,3 +1,17 @@
+// "development": {
+//   "username": "arco15u34jwrzvzc",
+//   "password": "cgxqnjjvn8u6p9a0",
+//   "database": "lnwk8sxxvyd4wcae",
+//   "host": "ijj1btjwrd3b7932.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+//   "dialect": "mysql"
+// },
+// "development": {
+//   "username": "root",
+//   "password": "!123Sally123",
+//   "database": "quarintainment_db",
+//   "host": "localhost",
+//   "dialect": "mysql"
+// },
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 
